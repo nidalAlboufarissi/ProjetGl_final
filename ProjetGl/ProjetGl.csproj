@@ -190,14 +190,28 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BacklogsController.cs" />
+    <Compile Include="Controllers\CollaborationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvitationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjetsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SprintsController.cs" />
+    <Compile Include="Controllers\TachesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Backlog.cs" />
+    <Compile Include="Models\Collaboration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invitation.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Projet.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Sprint.cs" />
+    <Compile Include="Models\Tache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -258,6 +272,42 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Role.cshtml" />
+    <Content Include="Views\Backlogs\Create.cshtml" />
+    <Content Include="Views\Backlogs\Delete.cshtml" />
+    <Content Include="Views\Backlogs\Details.cshtml" />
+    <Content Include="Views\Backlogs\Edit.cshtml" />
+    <Content Include="Views\Backlogs\Index.cshtml" />
+    <Content Include="Views\Collaborations\Create.cshtml" />
+    <Content Include="Views\Collaborations\Delete.cshtml" />
+    <Content Include="Views\Collaborations\Details.cshtml" />
+    <Content Include="Views\Collaborations\Edit.cshtml" />
+    <Content Include="Views\Collaborations\Index.cshtml" />
+    <Content Include="Views\Invitations\Create.cshtml" />
+    <Content Include="Views\Invitations\Delete.cshtml" />
+    <Content Include="Views\Invitations\Details.cshtml" />
+    <Content Include="Views\Invitations\Edit.cshtml" />
+    <Content Include="Views\Invitations\Index.cshtml" />
+    <Content Include="Views\Projets\Create.cshtml" />
+    <Content Include="Views\Projets\Delete.cshtml" />
+    <Content Include="Views\Projets\Details.cshtml" />
+    <Content Include="Views\Projets\Edit.cshtml" />
+    <Content Include="Views\Projets\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Sprints\Create.cshtml" />
+    <Content Include="Views\Sprints\Delete.cshtml" />
+    <Content Include="Views\Sprints\Details.cshtml" />
+    <Content Include="Views\Sprints\Edit.cshtml" />
+    <Content Include="Views\Sprints\Index.cshtml" />
+    <Content Include="Views\Taches\Create.cshtml" />
+    <Content Include="Views\Taches\Delete.cshtml" />
+    <Content Include="Views\Taches\Details.cshtml" />
+    <Content Include="Views\Taches\Edit.cshtml" />
+    <Content Include="Views\Taches\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
