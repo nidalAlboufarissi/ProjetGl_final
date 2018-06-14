@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -17,11 +18,39 @@ namespace ProjetGl.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
         }
+        public ActionResult Edit()
+        {
+            string s = Session["user"].ToString();
+            ApplicationUser user = db.Users.Where(p => p.Email == s).SingleOrDefault();
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Edit(ApplicationUser user)
+        {
+            if (ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                // Get the userprofile
+                ApplicationUser us = db.Users.Where(p=>p.Id==user.Id).SingleOrDefault();
 
+                // Update fields
+                us.Prenom = user.Prenom;
+                us.Nom = user.Nom;
+                us.Email = user.Email;
+
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home"); // or whatever
+            }
+
+            return View(user);
+        }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -404,10 +433,7 @@ namespace ProjetGl.Controllers
         {
             return View();
         }
-        public ActionResult Role()
-        {
-            return View();
-        }
+     
 
         protected override void Dispose(bool disposing)
         {
