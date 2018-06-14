@@ -68,6 +68,10 @@ namespace ProjetGl.Models
         [EmailAddress]
         [Display(Name = "Courrier électronique")]
         public string Email { get; set; }
+        [Required]
+        public string Nom { get; set; }
+        [Required]
+        public string Prenom { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "La chaîne {0} doit comporter au moins {2} caractères.", MinimumLength = 6)]

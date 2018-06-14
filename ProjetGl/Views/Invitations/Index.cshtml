@@ -1,0 +1,57 @@
+﻿
+@model IEnumerable<ProjetGl.Models.Invitation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Projet
+        </th>
+        <th>
+            Créateur du projet
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etat)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projet.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emetteur.Nom) @Html.DisplayFor(modelItem => item.Emetteur.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+            <td>
+                @if (item.Etat.Equals("En attente"))
+                {
+                    @Html.ActionLink("Accepter", "Accepter", new { id = item.Id })
+                    @Html.ActionLink("Refuser", "Refuser", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
