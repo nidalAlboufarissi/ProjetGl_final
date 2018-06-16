@@ -10,6 +10,7 @@ using ProjetGl.Models;
 
 namespace ProjetGl.Controllers
 {
+    [Authorize]
     public class BacklogsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,9 @@ namespace ProjetGl.Controllers
         // GET: Backlogs
         public ActionResult Index()
         {
-            return View(db.Backlogs.ToList());
+            string email = Session["user"].ToString();
+            ApplicationUser user = db.Users.Where(u => u.Email == email).First();
+            return View(db.Backlogs.Where(P=>P.Projet.id_client==user.Id).ToList());
         }
 
         // GET: Backlogs/Details/5

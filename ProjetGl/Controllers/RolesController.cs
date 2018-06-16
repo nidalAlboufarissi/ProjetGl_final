@@ -10,6 +10,7 @@ using ProjetGl.Models;
 
 namespace ProjetGl.Controllers
 {
+    [Authorize]
     public class RolesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

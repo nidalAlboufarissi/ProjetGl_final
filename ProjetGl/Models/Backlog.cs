@@ -15,7 +15,7 @@ namespace ProjetGl.Models
         [Required]
         public string Description { get; set; }
 
-        public int id_Project { get; set; }
+        public Nullable<int> Project_id { get; set; }
         public virtual Projet Projet { get; set; }
     }
 }

@@ -272,11 +272,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Backlogs\Create.cshtml" />
-    <Content Include="Views\Backlogs\Delete.cshtml" />
-    <Content Include="Views\Backlogs\Details.cshtml" />
-    <Content Include="Views\Backlogs\Edit.cshtml" />
-    <Content Include="Views\Backlogs\Index.cshtml" />
     <Content Include="Views\Collaborations\Create.cshtml" />
     <Content Include="Views\Collaborations\Delete.cshtml" />
     <Content Include="Views\Collaborations\Details.cshtml" />
@@ -308,6 +303,11 @@
     <Content Include="Views\Taches\Edit.cshtml" />
     <Content Include="Views\Taches\Index.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Backlogs\Create.cshtml" />
+    <Content Include="Views\Backlogs\Delete.cshtml" />
+    <Content Include="Views\Backlogs\Details.cshtml" />
+    <Content Include="Views\Backlogs\Edit.cshtml" />
+    <Content Include="Views\Backlogs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
