@@ -51,6 +51,17 @@ namespace ProjetGl.Controllers
 
             return View(user);
         }
+        public async Task<ActionResult> Delete()
+        {
+            string s = Session["user"].ToString();
+            ApplicationUser user = db.Users.Where(p => p.Email == s).SingleOrDefault();
+            await _userManager.RemoveLoginAsync(user.Id, new UserLoginInfo(user.Email, user.PasswordHash));
+            await _userManager.DeleteAsync(user);
+
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            return RedirectToAction("Index", "Home");
+        }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;

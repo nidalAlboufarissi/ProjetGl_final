@@ -17,7 +17,10 @@ namespace ProjetGl.Controllers
         // GET: Projets
         public ActionResult Index()
         {
-            return View(db.Projets.ToList());
+            string email = Session["user"].ToString();
+            ApplicationUser user = db.Users.Where(u => u.Email == email).First();
+
+            return View(db.Projets.Where(p=>p.id_client==user.Id).ToList());
         }
 
         // GET: Projets/Details/5
@@ -46,10 +49,13 @@ namespace ProjetGl.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nom,id_client")] Projet projet)
+        public ActionResult Create( Projet projet)
         {
+            string email = Session["user"].ToString();
+            projet.id_client = db.Users.Where(p => p.Email == email).First().Id;
             if (ModelState.IsValid)
             {
+              
                 db.Projets.Add(projet);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,8 +84,10 @@ namespace ProjetGl.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nom,id_client")] Projet projet)
+        public ActionResult Edit(Projet projet)
         {
+            string email = Session["user"].ToString();
+            projet.id_client = db.Users.Where(p => p.Email == email).First().Id;
             if (ModelState.IsValid)
             {
                 db.Entry(projet).State = EntityState.Modified;
